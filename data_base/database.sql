@@ -825,3 +825,14 @@ CREATE TABLE IF NOT EXISTS Join_Tablet_Google_Account(
     CONSTRAINT Tablet_FK_Join_Tablet_Google_Account
     FOREIGN KEY(Id_Tablet) REFERENCES Tablet(Id_Tablet) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS Join_Cell_Phone_Google_Account(
+    Id_Join BIGINT UNSIGNED AUTO_INCREMENT,
+    Id_Google_Account BIGINT UNSIGNED NOT NULL,
+    Id_Cell_Phone BIGINT UNSIGNED NOT NULL,
+    PRIMARY KEY(Id_Join),
+    CONSTRAINT Google_Account_FK_Join_Cell_Phone_Google_Account
+    FOREIGN KEY(Id_Google_Account) REFERENCES Google_Account(Id_Google_Account) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT Cell_Phone_FK_Join_Cell_Phone_Google_Account
+    FOREIGN KEY(Id_Cell_Phone) REFERENCES Cell_Phone(Id_Cell_Phone) ON UPDATE CASCADE ON DELETE CASCADE
+);
