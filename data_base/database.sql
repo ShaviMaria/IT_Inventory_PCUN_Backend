@@ -482,8 +482,6 @@ CREATE TABLE IF NOT EXISTS PC(
     Warranty_Status VARCHAR(10),
     Warranty_Start DATE,
     Warranty_Expiration DATE,
-    Note_1 VARCHAR(100),
-    Note_2 VARCHAR(100),
     Property BIGINT UNSIGNED NOT NULL,
     HostName BIGINT UNSIGNED,
     CPU BIGINT UNSIGNED NOT NULL,
