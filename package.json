@@ -1,0 +1,20 @@
+{
+  "name": "it_inventory_pcun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShaviMaria/IT_Inventory_Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShaviMaria/IT_Inventory_Backend/issues"
+  },
+  "homepage": "https://github.com/ShaviMaria/IT_Inventory_Backend#readme"
+}
