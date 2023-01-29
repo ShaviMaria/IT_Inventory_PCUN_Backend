@@ -838,6 +838,9 @@ CREATE TABLE IF NOT EXISTS Join_Cell_Phone_Google_Account(
     FOREIGN KEY(Id_Cell_Phone) REFERENCES Cell_Phone(Id_Cell_Phone) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+CREATE USER 'administrator'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Roll$371415';
+GRANT ALL PRIVILEGES ON IT_Inventory . * TO 'administrator'@'localhost';
+
 INSERT INTO Property VALUES(NULL, '5836', 'Paradisus Cancún');
 INSERT INTO Property VALUES(NULL, '6167', 'Circle by Melia Cancún');
 
