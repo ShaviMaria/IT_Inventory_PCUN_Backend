@@ -837,3 +837,60 @@ CREATE TABLE IF NOT EXISTS Join_Cell_Phone_Google_Account(
     CONSTRAINT Cell_Phone_FK_Join_Cell_Phone_Google_Account
     FOREIGN KEY(Id_Cell_Phone) REFERENCES Cell_Phone(Id_Cell_Phone) ON UPDATE CASCADE ON DELETE CASCADE
 );
+
+INSERT INTO Property VALUES(NULL, '5836', 'Paradisus Cancún');
+INSERT INTO Property VALUES(NULL, '6167', 'Circle by Melia Cancún');
+
+INSERT INTO Departament VALUES(NULL, 'Sistemas', 1);
+
+INSERT INTO User VALUES(
+    NULL,
+    '3066976',
+    'Javier Alfonso',
+    'Maria',
+    'Salas',
+    'Asistente de Sistemas',
+    'javier.maria.salas@melia.com',
+    NULL,
+    'JLMR125',
+    'Mell$1148',
+    0,
+    NULL,
+    'SMA0384',
+    'Mell$1148129',
+    'Activo',
+    '2023-01-29',
+    'Primer usuario creado para la bd',
+    'Sin nota 2',
+    'Sin nota 3',
+    NULL,
+    1
+);
+
+INSERT INTO System_User VALUES(
+    NULL,
+    'd26566fac1aa1773fb4e4a1f5591dbe8',
+    'Administrator',
+    1
+);
+
+INSERT INTO Event VALUES(
+    NULL,
+    'Creación de Usuario',
+    '2023-01-29',
+    'Creación de usuario Javier Alfonso Maria Salas',
+    1  
+);
+
+INSERT INTO Join_User_Event VALUES(
+    NULL,
+    1,
+    1
+);
+
+SELECT * FROM Property;
+SELECT * FROM Departament;
+SELECT * FROM User;
+SELECT * FROM System_User;
+SELECT * FROM Event;
+SELECT * FROM Join_User_Event;
