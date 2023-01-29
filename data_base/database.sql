@@ -894,3 +894,14 @@ SELECT * FROM User;
 SELECT * FROM System_User;
 SELECT * FROM Event;
 SELECT * FROM Join_User_Event;
+
+CREATE VIEW System_Users AS
+SELECT User.Name,
+       User.First_Surname,
+       User.Second_Surname,
+       User.Windows_User,
+       System_User.Password,
+       System_User.User_Type
+       FROM User inner join System_User ON User.Id_User = System_User.User;
+
+SELECT User.Name, User.First_Surname, User.Second_Surname, User.Windows_User, System_User.Password, System_User.User_Type FROM User inner join System_User ON User.Id_User = 1 AND System_User.User = 1;
