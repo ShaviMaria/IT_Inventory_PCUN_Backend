@@ -11,8 +11,10 @@ app.set('port', 4000);
 
 // Middlewares
 app.use(morgan('dev'));
+app.use(express.json());
 
 // Routes
-app.use('/api/system_Users',systemUserRoutes);
+//app.use('/api/system_Users:user/:password',  systemUserRoutes);
+app.use('/api/System_Users',  systemUserRoutes);
 
 export default app;
