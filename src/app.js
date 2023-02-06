@@ -15,6 +15,6 @@ app.use(express.json());
 
 // Routes
 //app.use('/api/system_Users:user/:password',  systemUserRoutes);
-app.use('/api/System_Users',  systemUserRoutes);
+app.use('/api/System_Users/',  systemUserRoutes);
 
 export default app;
