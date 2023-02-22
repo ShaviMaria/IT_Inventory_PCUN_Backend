@@ -1,8 +1,8 @@
 #This is the sql database
 
-CREATE DATABASE IF NOT EXISTS IT_Inventory;
+CREATE DATABASE IF NOT EXISTS MIT;
 
-USE IT_Inventory;
+USE MIT;
 
 CREATE TABLE IF NOT EXISTS Property(
     Id_Property BIGINT UNSIGNED AUTO_INCREMENT,
@@ -40,6 +40,8 @@ CREATE TABLE IF NOT EXISTS Phone_Line(
     Phone_Company VARCHAR(50) NOT NULL,
     Phone_Number VARCHAR(12) NOT NULL UNIQUE,
     SIM_Code VARCHAR(30) UNIQUE,
+    Status VARCHAR(10) NOT NULL,
+    Availability VARCHAR(10) NOT NULL,
     PRIMARY KEY(Id_Phone_Line)
 );
 
@@ -467,6 +469,17 @@ CREATE TABLE IF NOT EXISTS Tablet(
     FOREIGN KEY(Apple_ID) REFERENCES Apple_ID(Id_Apple_ID) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS Extension(
+    Id_Extension BIGINT UNSIGNED AUTO_INCREMENT,
+    Extension VARCHAR(10) NOT NULL UNIQUE,
+    Status VARCHAR(10) NOT NULL,
+    Circuit VARCHAR(10) UNIQUE,
+    Phone_Line BIGINT UNSIGNED UNIQUE,
+    PRIMARY KEY(Id_Extension),
+    CONSTRAINT Phone_Line_FK_Extension
+    FOREIGN KEY(Phone_Line) REFERENCES Phone_Line(Id_Phone_Line) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS Phone(
     Id_Phone BIGINT UNSIGNED AUTO_INCREMENT,
     Serial_Number VARCHAR(50) NOT NULL UNIQUE,
@@ -475,10 +488,13 @@ CREATE TABLE IF NOT EXISTS Phone(
     Note_1 VARCHAR(100),
     Note_2 VARCHAR(100),
     Registration_Date DATE NOT NULL,
+    Extension BIGINT UNSIGNED,
     Property BIGINT UNSIGNED NOT NULL,
     User BIGINT UNSIGNED,
     Model BIGINT UNSIGNED NOT NULL,
     PRIMARY KEY(Id_Phone),
+    CONSTRAINT Extension_FK_Phone
+    FOREIGN KEY(Extension) REFERENCES Extension(Id_Extension) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT Property_FK_Phone
     FOREIGN KEY(Property) REFERENCES Property(Id_Property) ON UPDATE CASCADE ON DELETE CASCADE,
     CONSTRAINT User_FK_Phone
@@ -839,7 +855,7 @@ CREATE TABLE IF NOT EXISTS Join_Cell_Phone_Google_Account(
 );
 
 CREATE USER 'administrator'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Roll$371415';
-GRANT ALL PRIVILEGES ON IT_Inventory . * TO 'administrator'@'localhost';
+GRANT ALL PRIVILEGES ON MIT . * TO 'administrator'@'localhost';
 
 INSERT INTO Property VALUES(NULL, '5836', 'Paradisus Cancún');
 INSERT INTO Property VALUES(NULL, '6167', 'Circle by Melia Cancún');
