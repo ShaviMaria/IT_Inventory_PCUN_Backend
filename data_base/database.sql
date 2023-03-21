@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS Apple_ID(
     Last_Name VARCHAR(50) NOT NULL,
     Country VARCHAR(20) NOT NULL,
     Date_Of_Birth DATE NOT NULL,
+    Registration_Date DATE NOT NULL,
     Secret_Question_1 VARCHAR(100),
     Secret_Question_1_Password VARCHAR(50),
     Secret_Question_2 VARCHAR(100),
