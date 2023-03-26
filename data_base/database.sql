@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS Phone_Line(
     Phone_Company VARCHAR(50) NOT NULL,
     Phone_Number VARCHAR(12) NOT NULL UNIQUE,
     SIM_Code VARCHAR(30) UNIQUE,
+    Country_Code VARCHAR(5) NOT NULL,
     Status VARCHAR(10) NOT NULL,
     Availability VARCHAR(10) NOT NULL,
     PRIMARY KEY(Id_Phone_Line)
