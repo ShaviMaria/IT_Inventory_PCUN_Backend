@@ -3,6 +3,10 @@ import morgan from "morgan";
 
 // Routes
 import systemUserRoutes from "./routes/system_User.routes";
+import userRoutes from './routes/users.routes';
+import eventsRoutes from './routes/events.routes';
+import propertiesRoutes from './routes/properties.routes';
+import networksRoutes from './routes/networks.routes';
 
 const app = express();
 
@@ -23,5 +27,10 @@ app.use((req, res, next) => {
 // Routes
 //app.use('/api/system_Users:user/:password',  systemUserRoutes);
 app.use('/api/System_Users/',  systemUserRoutes);
+app.use('/api/User/', userRoutes);
+app.use('/api/Events/', eventsRoutes);
+app.use('/api/Properties', propertiesRoutes);
+app.use('/api/Networks', networksRoutes);
+//app.use('/api/Users/', )
 
 export default app;
