@@ -89,7 +89,7 @@ const getGateways = async (req, res) => {
 const getGatewaysAddress = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query('SELECT * FROM Gateway_Address');
+        const result = await connection.query('SELECT * FROM Gateways_Address');
         res.json(result);
     } catch(error) {
         res.status(500);
