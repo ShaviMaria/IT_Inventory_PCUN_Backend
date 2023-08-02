@@ -1176,6 +1176,15 @@ CREATE VIEW Networks AS SELECT
 		FROM Partial_Networks JOIN Broadcast
 			ON Partial_Networks.Id_Network = Broadcast.Id_Network;
 
+ CREATE VIEW Gateways_Address AS SELECT
+    IP_Address.Id_IP_Address,
+    IP_Address.IP_Address,
+    IP_Address.Network
+        FROM Router JOIN Join_IP_Address_Router
+            ON Router.Id_Router = Join_IP_Address_Router.Id_Router
+        JOIN IP_Address
+            ON IP_Address.Id_IP_Address = Join_IP_Address_Router.Id_IP_Address;
+
 
 #DataTemp
 #INSERT INTO Network VALUES(null, 'Red 19', '255.255.255.0', '24', 254, 256, null, 1);
