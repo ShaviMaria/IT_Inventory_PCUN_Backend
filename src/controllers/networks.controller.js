@@ -86,6 +86,17 @@ const getGateways = async (req, res) => {
     }  
 }
 
+const getGatewaysAddress = async (req, res) => {
+    try {
+        const connection = await getConnection();
+        const result = await connection.query('SELECT * FROM Gateway_Address');
+        res.json(result);
+    } catch(error) {
+        res.status(500);
+        res.send(error.message);
+    } 
+}
+
 const getLastNetwork = async (req, res) => {
     try {
         const connection = await getConnection();
@@ -389,6 +400,7 @@ export const methods = {
     getDhcp_Servers,
     getDhcp_ServersById,
     getGateways,
+    getGatewaysAddress,
     getLastNetwork,
     getRelations,
     getIpAddress,
