@@ -97,6 +97,24 @@ const getGatewaysAddress = async (req, res) => {
     } 
 }
 
+const getGatewaysAddressByNetworkId = async (req, res) => {
+    try {
+        const networkId = req.params.networkId
+
+        if(networkId === undefined) {
+            res.status(400).json({ message: 'Bad request, please set an networkId'});
+            return;
+        }
+        
+        const connection = await getConnection();
+        const result = await connection.query(`SELECT * FROM Gateways_Address WHERE Network = ${networkId}`);
+        res.json(result);
+    } catch(error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 const getLastNetwork = async (req, res) => {
     try {
         const connection = await getConnection();
@@ -401,6 +419,7 @@ export const methods = {
     getDhcp_ServersById,
     getGateways,
     getGatewaysAddress,
+    getGatewaysAddressByNetworkId,
     getLastNetwork,
     getRelations,
     getIpAddress,

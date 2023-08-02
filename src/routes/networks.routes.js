@@ -10,6 +10,7 @@ router.get('/DHCP_Servers/:id', eventController.getDhcp_ServersById);
 router.get('/Relations/:id', eventController.getRelations);
 router.get('/Gateways', eventController.getGateways);
 router.get('/Gateways_Address', eventController.getGatewaysAddress);
+router.get('/Gateways_Address/:networkId', eventController.getGatewaysAddressByNetworkId);
 router.get('/LastNetwork', eventController.getLastNetwork);
 router.get('/IP_Address/:network/:ip', eventController.getIpAddress);
 router.get('/IP_Addresses/Aviable/:network', eventController.getAviableIpAddressesByNetwork);
